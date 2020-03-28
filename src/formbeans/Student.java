@@ -55,5 +55,15 @@ public class Student extends ActionForm {
 		}
 		return ae;
 	}
+	
+	@Override
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
+
+		name = "Julio";
+		email = "julio.a.luque@gmail.com";
+		address = "Ladislao Cabrera 373, Silicon Valley";
+		
+		super.reset(mapping, request);
+	}
 
 }

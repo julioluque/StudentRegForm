@@ -17,14 +17,18 @@ public class StudentRegController extends Action {
 	}
 
 	@Override
-	public ActionForward execute(ActionMapping am, ActionForm bean, HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+	public ActionForward execute(ActionMapping am, ActionForm bean, HttpServletRequest req,
+			HttpServletResponse res) throws Exception {
 
 		Student st = (Student) bean;
 		System.out.println(st.getName());
 		System.out.println(st.getEmail());
 		System.out.println(st.getAddress());
 		
+		bean.reset(am, req);
+		
+		req.setAttribute("res", "Registration success! ");
+
 		return am.findForward("success");
 		
 	}
